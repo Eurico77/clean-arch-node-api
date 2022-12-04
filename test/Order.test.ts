@@ -1,3 +1,4 @@
+import { Coupon } from '../src/Coupon';
 import Item from '../src/Item';
 import Order from '../src/Order';
 
@@ -22,5 +23,15 @@ describe('Orders', () => {
     order.addItem(new Item(3, 'Música', 'DISCO', 90), 3);
     const total = order.getTotal();
     expect(total).toBe(480);
+  });
+
+  it('Deve criar um pedido com 3 itens e com um cupom de desconto', () => {
+    const cpf = '839.435.452-10';
+    const order = new Order(cpf);
+    order.addItem(new Item(1, 'Música', 'CD', 30), 3);
+    order.addItem(new Item(2, 'Vídeo', 'DVD', 50), 1);
+    order.addItem(new Item(3, 'Música', 'DISCO', 10), 2);
+    order.addCoupon(new Coupon('VALE20', 20));
+    expect(order.getTotal()).toBe(128);
   });
 });
