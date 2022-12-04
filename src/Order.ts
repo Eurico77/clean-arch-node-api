@@ -17,8 +17,7 @@ export default class Order {
 
   getTotal() {
     return this.ordersItems.reduce((acc, order) => {
-      acc += order.price * order.quantity;
-      return acc;
+      return (acc += order.getTotal());
     }, 0);
   }
 }
