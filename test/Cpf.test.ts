@@ -1,6 +1,6 @@
 import Cpf from '../src/Cpf';
 
-describe('CPF', () => {
+describe('CPF validator', () => {
   it('Deve validar um cpf', () => {
     const isValid = new Cpf('935.411.347-80');
     expect(isValid).toBeTruthy();
