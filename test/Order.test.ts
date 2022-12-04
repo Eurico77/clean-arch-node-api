@@ -8,4 +8,10 @@ describe('Orders', () => {
     expect(total).toBe(0);
    
   });
+
+  it('Deve tentar criar pedido com cpf invalido', () => {
+    const cpf = '111.111.111-11';
+    expect(() => new Order(cpf)).toThrow(new Error('Invalid CPF'));
+   
+  });
 });
